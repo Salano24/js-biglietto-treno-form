@@ -1,0 +1,44 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(14, 106, 39);
+    color: white
+
+}
+
+.container{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+input{
+    background-color: white;
+    border-radius: 16px;
+    border:1px solid green ;
+    color: rgb(21, 183, 64); 
+    padding:0.5rem 1rem ;
+   
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.col-2{
+    width: 100% / 12 * 2;
+}
+
+h3{
+    color: black;
+}
+
+#submitbtn{
+    background-color: white;
+    border-radius: 16px;
+    border:1px solid green ;
+    color: rgb(21, 183, 64);
+    padding:0.5rem 1rem ;
+}

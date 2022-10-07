@@ -4,20 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Form Biglietto Treno</title>
 </head>
 <body>
     
+    
+    <div class="container">
+        <h1>Viaggia con noi, riceverai uno sconto in base alla tua età!</h1>
+        <form action="" class="form">
+            <div class="input">
+                <label for="fname">Utente</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Inserisci il tuo nome e cognome">
+            </div>
 
- 
-    <h3>Nome: <input type="text" id="nome"></h3>
-    <h3>Km da percorrere: <input id="km_da_percorrere" type="number"></h3>
-    <h3>Facscia d'età: <input id="fascia_eta" type="number"> </h3>
-    <button id="genera">Genera</button>
+            <div class="input">
+                <label for="lname">Kilometri</label>
+                <input type="text" id="kilometers" name="kilometers" placeholder="Inserisci il numero di km che vuoi percorrere">
+            </div>
 
-    <h1>Il prezzo del tuo biglietto è:</h1>
-    <h3 id="price"></h3>
+            <div class="input">
+                <label for="lname">Fascia d'età</label>
+                <input type="text" id="age" name="age" placeholder="Inserisci la tua età">
+            </div>
+
+            <input type="button" value="Genera" id="submitbtn">
+        </form>
+
+        <div class="ticket">
+            <div class="container">
+                <div class="row">
+                    <div class="col-2">
+                        <h3>Utente </h3>
+                        <h1 id="ticketname">Nome completo</h1>
+                    </div>
+                    <div class="col-2">
+                        <h3>Kilometri da percorrere</h3>
+                        <h1 id="ticketkilometers">Kilometri</h1>
+                    </div>
+                    <div class="col-2">
+                        <h3>Sconto</h3>
+                        <h1 id="ticketdiscount">Sconto: </h1>
+                    </div>
+                    <div class="col-2">
+                        <h3>Numero Vagone</h3>
+                        <h1 id="ticketwagon">Vagone:</h1>
+                    </div>
+                    
+                    <div class="col-2">
+                        <h3>Prezzo</h3>
+                        <h1 id="ticketprice">Prezzo del biglietto</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <script src="./assets/js/main.js"></script>
 </body>
 </html>

@@ -1,52 +1,58 @@
-/* 
-Il programma dovrà chiedere all 'utente:
-il numero di chilometri che vuole percorrere
-e l 'età del passeggero.
-Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio, secondo queste regole:
-  il prezzo del biglietto è definito in base ai km(0.21€ al km)
-va applicato uno sconto del 20 % per i minorenni
-va applicato uno sconto del 40 % per gli over 65.
-L 'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo).
-*/
-const priceEl = document.getElementById('price')
-const pricePerKm = 0.21;
-const generaBtn = document.getElementById('genera');
-let discount, ticketPrice;
-// 1. chiedere all'utente il numero di chilometri che vuole percorrere
+let fNameInput = document.querySelector("#fullname");
+let kiloInput = document.querySelector("#kilometers");
+let ageInput = document.querySelector("#age");
 
-  generaBtn.addEventListener('click', function(){
-    const passengerAge = Number (document.getElementById('fascia_eta'))
-    const km = Number (document.getElementById('km_da_percorrere'))
+let fName;
+let kilo;
+let age;
 
-    ticketPrice = km * pricePerKm;
+let pricePerKilometer = 0.21
+let minorDiscountRate = 20
+let seniorDiscountRate = 40
 
-//console.log(ticketPrice);
+let discount;
+let price;
 
-// 3.2 va applicato uno sconto del 20 % per i minorenni
-if (passengerAge < 18) {
-  // Applica sconto del 20%
-  discount = 0.2
-}
-// 3.3 va applicato uno sconto del 40 % per gli over 65.
-else if (passengerAge > 65) {
-  // applica sconto del 40%
-  discount = 0.4
-} else {
-  // no discount
-  discount = 0
-}
-const discountAmount = ticketPrice * discount;
-ticketPrice = ticketPrice - discountAmount
+let ticketName = document.querySelector("#ticketname");
+let ticketKilometers = document.querySelector("#ticketkilometers")
+let ticketdiscount = document.querySelector("#ticketdiscount")
+let ticketWagon = document.querySelector("#ticketwagon")
+let ticketPrice = document.querySelector("#ticketprice")
 
-// Controllare se il valore di ticket price é NaN e se si mostrare una allerta
-if (isNaN(ticketPrice)) {
-  // mostriamo un alerta
-  alert('Non hai inserito correttamente i km da percorrere! Devi inserire un valore numerico.')
-  // mostriamo a schermo un messagio al posto del prezzo
-  priceEl.innerHTML = `Ops! c'é stato un problema! Riprova.`
+document.getElementById('submitbtn').addEventListener("click", function() {
+    fName = fNameInput.value
+    kilo = kiloInput.value
+    age = ageInput.value
+    
+    if(isNaN(kilo)||isNaN(age)){
+        alert("Inserisci credenziali valide ")
+    }
 
-} else {
-  priceEl.innerHTML = `€ ${ticketPrice.toFixed(2)}`
-}
+    let preDiscountPrice = kilo*pricePerKilometer
 
-  })
+    if(age <=18){
+        discount = ((preDiscountPrice /100) *minorDiscountRate)
+        price = preDiscountPrice - discount
+        ticketdiscount.innerHTML = "Sconto: Under18"
+    } else if(age >= 65){
+        discount = ((preDiscountPrice /100) *seniorDiscountRate)
+        price = preDiscountPrice - discount
+        ticketdiscount.innerHTML = "Sconto: Over65"
+    } else {
+        price = preDiscountPrice
+        ticketdiscount.innerHTML = "Nessuno sconto"
+    }
+    
+    price = price.toFixed(2)
+    
+    let wagonRng = Math.round(Math.random()*10)
+
+    ticketName.innerHTML = fName
+    ticketKilometers.innerHTML = kilo
+    ticketWagon.innerHTML = wagonRng
+    ticketPrice.innerHTML = "€" + price
+
+
+    console.log("a")
+    console.log(age,fName,kilo,price)
+});
